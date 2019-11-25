@@ -1,0 +1,19 @@
+{
+    "cSpell.words": [
+        "Ionicons",
+        "Reost",
+        "Scrollable",
+        "collapsable",
+        "rasterize"
+    ],
+    "editor.wordWrap": "on",
+    "spellchecker.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "typescript",
+        "reactTypescript",
+        "tsx",
+        "ts"
+    ]
+}

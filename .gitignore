@@ -1,0 +1,17 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
+#build
+build
+
+.DS_Store
+
+yarn.lock
+
+# Arhive
+.archive
