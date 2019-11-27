@@ -6,14 +6,15 @@ import { Widget } from './elements/card/card.element';
 import { LoadingIndicator } from './elements/loading-indicator/loading-indicator';
 import { ImageX } from './elements/image/image.element';
 import { Column } from './layout/layout';
+import { LayoutPagePlayground } from './playgrounds/layout-page/layout-page.playground';
+import { ColorProfilePagePlayground } from './playgrounds/color-profiles-page/color-profile';
 
 
 storiesOf('Storybook', module).add('Playground', () => <PlaygroundView />);
 
-// storiesOf('Elements', module)
-//   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
-//   .add('Button', () => <ButtonX onPress={() => console.log("Button Clicked")} label={"Continue"} />)
-
+storiesOf('Theme', module)
+    // .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
+    .add('Color Profiles', () => <ColorProfilePagePlayground />)
 //   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
 //   .add('Card', () => <Widget width={300} height={200} />)
 

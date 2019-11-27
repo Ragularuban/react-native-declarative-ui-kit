@@ -15,11 +15,15 @@
     "experimentalDecorators": true,
     "types": [
       "react",
-      "react-native"
+      "react-native",
+      "node"
     ],
-    "exclude": [
-      ".archive/**/*",
-      "node_modules"
+    "typeRoots": [
+      "../node_modules/@types"
     ]
-  }
+  },
+  "exclude": [
+    ".archive/**/*",
+    "node_modules"
+  ]
 }

@@ -2,7 +2,78 @@ export const UIConfigurations = {
     global: {
         colors: {
             regular: '#4A4A4A',
-            primary: "#FF0166",
+            primary: "#FF1A70",
+            _primary: {
+                _100: "#FFF4F8",
+                _200: "#FFDBE9",
+                _300: "#FEA8C8",
+                _400: "#FD5695",
+                _500: "#FF1A70", // This is the primary color
+                _600: "#D92569",
+                _700: "#B81854",
+                _800: "#951243",
+                _900: "#780832",
+            },
+            basic: "#414A4F",
+            _basic: {
+                _100: "#FFFFFF", // This is just white <(._.)<
+                _200: "#ECF2F4",
+                _300: "#D8E0E3",
+                _400: "#B6C2C7",
+                _500: "#88969B",
+                _600: "#5E6B6F",
+                _700: "#414A4F", // This is the primary color
+                _800: "#951243",
+                _900: "#1A2124",
+            },
+            success: "#00D68F",
+            _success: {
+                _100: "#F0FFF5",
+                _200: "#CCFCE3",
+                _300: "#8CFAC7",
+                _400: "#2CE69B",
+                _500: "#00D68F", // This is the primary color
+                _600: "#00B887",
+                _700: "#00997A",
+                _800: "#007D6C",
+                _900: "#004A45",
+            },
+            info:"#0095FF",
+            _info: {
+                _100: "#F2F8FF",
+                _200: "#C7E2FF",
+                _300: "#94CBFF",
+                _400: "#42AAFF",
+                _500: "#0095FF", // This is the primary color
+                _600: "#006FD6",
+                _700: "#0057C2",
+                _800: "#0041A8",
+                _900: "#002885",
+            },
+            warning:"#FFAA00",
+            _warning: {
+                _100: "#FFFDF2",
+                _200: "#FFF1C2",
+                _300: "#FFE59E",
+                _400: "#FFC94C",
+                _500: "#FFAA00", // This is the primary color
+                _600: "#DB8B00",
+                _700: "#B86E00",
+                _800: "#945400",
+                _900: "#703C00",
+            },
+            danger:"#FF3D3D",
+            _danger: {
+                _100: "#FDEEEE",
+                _200: "#FCD0D0",
+                _300: "#FEA0A0",
+                _400: "#FF6E6E",
+                _500: "#FF3D3D", // This is the primary color
+                _600: "#DC1F1F",
+                _700: "#B71010",
+                _800: "#8D0202",
+                _900: "#520000",
+            },
             secondary: "#2DCE9B",
             // Shades of Grey
             light: '#9B9B9B',

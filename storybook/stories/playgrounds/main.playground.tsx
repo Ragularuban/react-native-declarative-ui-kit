@@ -12,6 +12,10 @@ import { ProgressBarsPagePlayground } from "./progress-bars-page/progress-bars-p
 import { InputsPagePlayground } from "./inputs-page/inputs-page.playground";
 import { LottieAnimationsPagePlayground } from "./lottie-animations-page/lottie-animations-page.playground";
 import { IconsPagePlayground } from "./icons-page/icons-page.playground";
+import { TagColorSelector } from "../collections/tag-color-selector/tag-color-selector.collection";
+import { WelcomePagePlayground } from "./welcome-page/welcome-page";
+import { ColorProfilePagePlayground } from "./color-profiles-page/color-profile";
+
 
 export class PlaygroundView extends Component<PlaygroundViewProps, PlaygroundViewState>{
   componentDidMount() { }
@@ -19,8 +23,9 @@ export class PlaygroundView extends Component<PlaygroundViewProps, PlaygroundVie
   render() {
     return (
       <Column fill>
-        {/* <OnBoardingPagePlayground /> */}
-        <TypographyPagePlayground />
+        <WelcomePagePlayground />
+        {/* <ColorProfilePagePlayground /> */}
+        {/* <TypographyPagePlayground /> */}
         {/* <LayoutPagePlayground /> */}
         {/* <ButtonsPagePlayground /> */}
         {/* <ProgressBarsPagePlayground /> */}

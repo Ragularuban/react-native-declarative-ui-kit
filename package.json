@@ -9,8 +9,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "storybook": "storybook start",
-    "clean": "rm -fr $TMPDIR/metro* && watchman watch-del-all",
-    "postinstall": "sh .scripts/postinstall.sh"
+    "clean": "rm -fr $TMPDIR/metro* && watchman watch-del-all"
   },
   "author": "",
   "license": "ISC",
@@ -45,7 +44,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.2.3",
     "@types/expo": "^31.0.1",
-    "@types/node": "^12.7.8",
+    "@types/node": "^12.12.14",
     "@types/react": "^16.7.8",
     "@types/react-native": "^0.57.15",
     "babel-core": "^6.26.3",
