@@ -44,14 +44,28 @@ export class ButtonsPage extends React.PureComponent<ButtonsPageProps & Partial<
                         <ButtonX label="Button"></ButtonX>
                     </Widget>
 
+
+                    {/* Button Sizes */}
+                    <Widget padded-xxl>
+                        <ButtonX label="Small" small></ButtonX>
+                        <Box height={20} />
+                        <ButtonX label="Warning" warning outlined></ButtonX>
+                        <Box height={20} />
+                        <ButtonX label="Large" large ></ButtonX>
+                        <Box height={20} />
+                        <ButtonX label="Extra Large" large-x></ButtonX>
+                    </Widget>
+
                     {/* Button Colors */}
                     <Widget padded-xxl>
-                        <ButtonX label="Primary" primary add-margin></ButtonX>
-                        <ButtonX label="Primary" secondary add-margin></ButtonX>
+                        <ButtonX label="rounded" disabled rounded primary add-margin></ButtonX>
+                        <ButtonX label="Primary" success add-margin></ButtonX>
                         <ButtonX label="Primary" dark add-margin></ButtonX>
-                        <ButtonX label="Primary" inverted primary add-margin></ButtonX>
-                        <ButtonX label="Primary" inverted secondary add-margin></ButtonX>
-                        <ButtonX label="Primary" inverted dark add-margin></ButtonX>
+                        <ButtonX label="gh suc" ghost success add-margin></ButtonX>
+                        <ButtonX label="gh warn" ghost warning add-margin></ButtonX>
+                        <ButtonX label="Primary" ghost dark add-margin></ButtonX>
+                        <ButtonX label="danger" danger></ButtonX>
+                        <ButtonX label="info" info></ButtonX>
                     </Widget>
 
                     {/* Button Types */}
@@ -60,13 +74,14 @@ export class ButtonsPage extends React.PureComponent<ButtonsPageProps & Partial<
                         <ButtonX label="Labeled" labeled icon="ios-close" left-aligned-icon></ButtonX>
                     </Widget>
 
-                    {/* Button Sizes */}
+                    {/* Button Types */}
                     <Widget padded-xxl>
-                        <ButtonX label="Small" small></ButtonX>
-                        <ButtonX label="Normal"></ButtonX>
-                        <ButtonX label="Large" large></ButtonX>
-                        <ButtonX label="Extra Large" large-x></ButtonX>
+                        <ButtonX icon="ios-apps" info></ButtonX>
+                        <ButtonX label={'lol'} labeled right-aligned-icon icon="ios-apps" outlined></ButtonX>
+
                     </Widget>
+
+
 
                 </Scrollable>
                 {/* Bottom Bar */}
@@ -77,7 +92,7 @@ export class ButtonsPage extends React.PureComponent<ButtonsPageProps & Partial<
 }
 
 export interface ButtonsPageProps {
-    goBack: () => any
+    goBack?: () => any
 }
 
 export interface ButtonsPageState {

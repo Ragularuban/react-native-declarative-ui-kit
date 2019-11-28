@@ -62,7 +62,7 @@ export class InputsPage extends React.PureComponent<InputsPageProps & Partial<In
 }
 
 export interface InputsPageProps {
-    goBack: () => any
+    goBack?: () => any
 }
 
 export interface InputsPageState {

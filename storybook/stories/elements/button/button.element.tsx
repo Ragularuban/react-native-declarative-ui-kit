@@ -98,12 +98,15 @@ export const ButtonX = (props: {
     large?: boolean,
     "large-x"?: boolean,
     // Coloring Options
-    inverted?: boolean,
+    ghost?: boolean,
     // Button Colors & Label Colors
     primary?: boolean,
-    secondary?: boolean,
+    success?: boolean,
     dark?: boolean,
-    disabled?: boolean
+    warning?: boolean,
+    danger?: boolean,
+    info?: boolean,
+    disabled?: boolean,
     // Floated Options
     "float-left"?: boolean,
     "float-right"?: boolean,
@@ -112,20 +115,22 @@ export const ButtonX = (props: {
     "left-aligned-icon"?: boolean,
     // Border Radius
     rounded?: boolean
+    outlined?: boolean
     // Special Props
     isLoading?: boolean;
     // Events
     onPress?: () => any,
     style?: ViewStyle | ViewStyle[] | RegisteredStyle<ViewStyle> | RegisteredStyle<ViewStyle>[],
     track?: string,
-    width?: number
-
+    width?: number,
 }) => {
 
     let buttonProps: ButtonXProps = {
         // Button
         type: ButtonXType.LABELED,
-        style: {},
+        style: {
+            paddingVertical: props.label ? 10 : null
+        },
         //Label
         label: props.label,
         labelStyle: {
@@ -153,13 +158,15 @@ export const ButtonX = (props: {
 
     }
 
+
+
     // Support size based syntaxes
     if (props.small) {
         if (buttonProps.type == ButtonXType.ICON) {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
-                    borderRadius: ifSmallerScreen(10, 20),
+                    borderRadius: props.rounded ? 50 : 8,
                     height: ifSmallerScreen(20, 40),
                     width: ifSmallerScreen(20, 40),
                 }
@@ -172,10 +179,11 @@ export const ButtonX = (props: {
                 ...buttonProps.style as any,
                 ...{
                     flexDirection: 'row',
-                    padding: ifSmallerScreen(5, 5),
+                    padding: 10,
                     paddingLeft: ifSmallerScreen(10, 20),
                     paddingRight: ifSmallerScreen(10, 20),
-                    borderRadius: ifSmallerScreen(10, 20)
+                    borderRadius: props.rounded ? 50 : 8,
+                    marginHorizontal: 30,
                 }
             }
         }
@@ -191,7 +199,7 @@ export const ButtonX = (props: {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
-                    borderRadius: ifSmallerScreen(15, 30),
+                    borderRadius: props.rounded ? 50 : 8,
                     height: ifSmallerScreen(30, 60),
                     width: ifSmallerScreen(30, 60),
                 }
@@ -208,7 +216,7 @@ export const ButtonX = (props: {
                     paddingRight: ifSmallerScreen(20, 40),
                     // minWidth: 180,
                     minHeight: ifSmallerScreen(20, 40),
-                    borderRadius: ifSmallerScreen(10, 20)
+                    borderRadius: props.rounded ? 50 : 8
                 }
             }
         }
@@ -217,7 +225,7 @@ export const ButtonX = (props: {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
-                    borderRadius: ifSmallerScreen(20, 40),
+                    borderRadius: props.rounded ? 50 : 8,
                     height: ifSmallerScreen(40, 80),
                     width: ifSmallerScreen(40, 80),
                 }
@@ -234,7 +242,7 @@ export const ButtonX = (props: {
                     paddingRight: ifSmallerScreen(25, 50),
                     // minWidth: 180,
                     minHeight: ifSmallerScreen(25, 50),
-                    borderRadius: ifSmallerScreen(12, 25)
+                    borderRadius: props.rounded ? 50 : 8
                 }
             }
             buttonProps.labelStyle = {
@@ -250,7 +258,7 @@ export const ButtonX = (props: {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
-                    borderRadius: ifSmallerScreen(10, 20),
+                    borderRadius: props.rounded ? 50 : 8,
                     height: ifSmallerScreen(20, 40),
                     width: ifSmallerScreen(20, 40),
                 }
@@ -267,19 +275,19 @@ export const ButtonX = (props: {
                     padding: ifSmallerScreen(3.5, 7),
                     paddingLeft: ifSmallerScreen(15, 30),
                     paddingRight: ifSmallerScreen(15, 30),
-                    borderRadius: ifSmallerScreen(8.5, 17),
+                    borderRadius: props.rounded ? 50 : 8,
                 }
             }
         }
     }
 
     // Support color based syntaxes
-    if (!props.inverted) {
-        if (props.secondary) {
+    if (!props.ghost) {
+        if (props.success) {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
-                    backgroundColor: UIConfigurations.global.colors.secondary
+                    backgroundColor: UIConfigurations.global.colors.success
                 }
             }
             buttonProps.labelStyle = {
@@ -303,7 +311,52 @@ export const ButtonX = (props: {
                 }
             }
             buttonProps.iconColor = "#fff";
-        } else if (props.disabled) {
+        }
+        else if (props.danger) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: UIConfigurations.global.colors.danger
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: "#fff"
+                }
+            }
+            buttonProps.iconColor = "#fff";
+        } else if (props.warning) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: UIConfigurations.global.colors.warning
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: "#fff"
+                }
+            }
+            buttonProps.iconColor = "#fff";
+        }
+        else if (props.info) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: UIConfigurations.global.colors.info
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: "#fff"
+                }
+            }
+            buttonProps.iconColor = "#fff";
+        }
+        else if (props.disabled) {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
@@ -334,7 +387,7 @@ export const ButtonX = (props: {
             buttonProps.iconColor = "#fff";
         }
     } else {
-        if (props.secondary) {
+        if (props.success) {
             buttonProps.style = {
                 ...buttonProps.style as any,
                 ...{
@@ -344,10 +397,10 @@ export const ButtonX = (props: {
             buttonProps.labelStyle = {
                 ...buttonProps.labelStyle as any,
                 ...{
-                    color: UIConfigurations.global.colors.secondary
+                    color: UIConfigurations.global.colors.success
                 }
             }
-            buttonProps.iconColor = UIConfigurations.global.colors.secondary;
+            buttonProps.iconColor = UIConfigurations.global.colors.success;
         } else if (props.dark) {
             buttonProps.style = {
                 ...buttonProps.style as any,
@@ -362,6 +415,49 @@ export const ButtonX = (props: {
                 }
             }
             buttonProps.iconColor = UIConfigurations.global.colors.dark;
+        } else if (props.danger) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff"
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.danger
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.danger;
+        } else if (props.warning) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff"
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.warning
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.warning;
+        }
+        else if (props.info) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff"
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.info
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.info;
         } else if (props.disabled) {
             buttonProps.style = {
                 ...buttonProps.style as any,
@@ -396,7 +492,132 @@ export const ButtonX = (props: {
         if (props["primary-icon"]) {
             buttonProps.iconColor = UIConfigurations.global.colors.primary;
         } else if (props["secondary-icon"]) {
-            buttonProps.iconColor = UIConfigurations.global.colors.secondary;
+            buttonProps.iconColor = UIConfigurations.global.colors.success;
+        }
+    }
+
+    // outlined (outline and ghost does not work together)
+    if (props.outlined && !props.ghost) {
+        if (props.success) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.primary
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.success
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.success;
+        } else if (props.danger) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.danger
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.danger
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.danger;
+        } else if (props.warning) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.warning
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.warning
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.warning;
+        }
+        else if (props.info) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.info
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.info
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.info;
+        } else if (props.dark) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.primary
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.dark
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.dark;
+        } else if (props.disabled) {
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.primary
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.smoke
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.dark;
+        } else {
+            // Primary
+            buttonProps.style = {
+                ...buttonProps.style as any,
+                ...{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: UIConfigurations.global.colors.primary
+                }
+            }
+            buttonProps.labelStyle = {
+                ...buttonProps.labelStyle as any,
+                ...{
+                    color: UIConfigurations.global.colors.primary
+                }
+            }
+            buttonProps.iconColor = UIConfigurations.global.colors.primary;
+        }
+        // Change Icon Color
+        if (props["primary-icon"]) {
+            buttonProps.iconColor = UIConfigurations.global.colors.primary;
+        } else if (props["secondary-icon"]) {
+            buttonProps.iconColor = UIConfigurations.global.colors.success;
         }
     }
 
