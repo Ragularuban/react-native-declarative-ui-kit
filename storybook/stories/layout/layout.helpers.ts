@@ -133,7 +133,7 @@ export function getLayout(props: LayoutProps, isRow) {
     }
 
     if (props.background) {
-        layoutStyle += `backgroundColor:${props.background};`;
+        layoutStyle += `backgroundColor:${props.background} !important;`;
     }
 
     if (props.row) {

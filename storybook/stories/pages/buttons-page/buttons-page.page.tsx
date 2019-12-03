@@ -58,7 +58,7 @@ export class ButtonsPage extends React.PureComponent<ButtonsPageProps & Partial<
 
                     {/* Button Colors */}
                     <Widget padded-xxl>
-                        <ButtonX label="rounded" disabled rounded primary add-margin></ButtonX>
+                        <ButtonX label="rounded" isLoading disabled rounded primary add-margin></ButtonX>
                         <ButtonX label="Primary" success add-margin></ButtonX>
                         <ButtonX label="Primary" dark add-margin></ButtonX>
                         <ButtonX label="gh suc" ghost success add-margin></ButtonX>

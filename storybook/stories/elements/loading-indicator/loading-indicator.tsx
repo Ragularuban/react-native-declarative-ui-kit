@@ -10,7 +10,7 @@ export class LoadingIndicator extends Component<loadingIndicatorProps, loadingIn
     render() {
         return (
             <Row center middle>
-                <ImageX source={Assets.loaders.loader3Dots} width={90} height={60} />
+                <ImageX source={Assets.loaders.content_loading} width={90} height={60} />
             </Row>
         )
     }

@@ -10,6 +10,8 @@ import { LayoutPagePlayground } from './playgrounds/layout-page/layout-page.play
 import { ColorProfilePagePlayground } from './playgrounds/color-profiles-page/color-profile';
 import { ButtonsPage } from './pages/buttons-page/buttons-page.page';
 import { InputsPage } from './pages/inputs-page/inputs-page.page';
+import { CheckBoxPage } from './pages/check-box/check-box-page.page';
+import { RadioButtonPage } from './pages/radio-button-page/radio-button-page.page';
 
 
 storiesOf('Storybook', module).add('Playground', () => <PlaygroundView />);
@@ -19,6 +21,8 @@ storiesOf('Theme', module)
     .add('Color Profiles', () => <ColorProfilePagePlayground />)
     .add('Buttons', () => <ButtonsPage />)
     .add('Input', () => <InputsPage />)
+    .add('Check Box', () => <CheckBoxPage />)
+    .add('Radio Button', () => <RadioButtonPage />)
 //   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
 //   .add('Card', () => <Widget width={300} height={200} />)
 

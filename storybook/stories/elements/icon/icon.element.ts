@@ -51,11 +51,11 @@ export const Icon: (props: {
         size = 24;
     } else if (props["small-x"]) {
         size = 20;
-    } else if (props["small-x"]) {
-        size = 16;
     } else if (props["small-xx"]) {
-        size = 12;
+        size = 16;
     } else if (props["small-3x"]) {
+        size = 12;
+    } else if (props["small-4x"]) {
         size = 8;
     }
 

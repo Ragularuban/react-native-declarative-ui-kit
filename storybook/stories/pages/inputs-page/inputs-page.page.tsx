@@ -4,8 +4,9 @@ import { H1, H2, H3, H4, P } from "../../typography/typography";
 import { Widget } from "../../elements/card/card.element";
 import { BottomBar } from "../../collections/bottom-bar/bottom-bar.collection";
 import { ButtonX } from "../../elements/button/button.element";
-import { Input } from "../../elements/inputs/input.element";
+import { InputX } from "../../elements/inputs/input.element";
 import { TextArea } from "../../elements/inputs/text-area.element";
+import { UIConfigurations } from "../../config/config";
 
 
 export class InputsPage extends React.PureComponent<InputsPageProps & Partial<InputsPageConnectedProps>, InputsPageState>{
@@ -44,7 +45,27 @@ export class InputsPage extends React.PureComponent<InputsPageProps & Partial<In
                     {/* Simple Textbox */}
                     <Widget padded-xxl>
                         <Box>
-                            <Input placeholder="Input"></Input>
+                            <InputX primary placeholder={'primary'}></InputX>
+                        </Box>
+                    </Widget>
+                    <Widget padded-xxl>
+                        <Box>
+                            <InputX success placeholder={'success'}></InputX>
+                        </Box>
+                    </Widget>
+                    <Widget padded-xxl>
+                        <Box>
+                            <InputX warning placeholder={'warning'}></InputX>
+                        </Box>
+                    </Widget>
+                    <Widget padded-xxl>
+                        <Box>
+                            <InputX danger placeholder={'danger'} icon={'ios-search'}></InputX>
+                        </Box>
+                    </Widget>
+                    <Widget padded-xxl>
+                        <Box>
+                            <InputX info placeholder={'info'}></InputX>
                         </Box>
                     </Widget>
 
@@ -55,7 +76,7 @@ export class InputsPage extends React.PureComponent<InputsPageProps & Partial<In
                         </Box>
                     </Widget>
                 </Scrollable>
-            </Column>
+            </Column >
         )
     }
 
