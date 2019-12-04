@@ -12,6 +12,9 @@ import { ButtonsPage } from './pages/buttons-page/buttons-page.page';
 import { InputsPage } from './pages/inputs-page/inputs-page.page';
 import { CheckBoxPage } from './pages/check-box/check-box-page.page';
 import { RadioButtonPage } from './pages/radio-button-page/radio-button-page.page';
+import { SwitchXPage } from './pages/switch-page/switch-page.page';
+import { TabXPage } from './pages/tab-page/tabX-page.page';
+
 
 
 storiesOf('Storybook', module).add('Playground', () => <PlaygroundView />);
@@ -23,6 +26,8 @@ storiesOf('Theme', module)
     .add('Input', () => <InputsPage />)
     .add('Check Box', () => <CheckBoxPage />)
     .add('Radio Button', () => <RadioButtonPage />)
+    .add('Switch', () => <SwitchXPage />)
+    .add('Tab View', () => <TabXPage />)
 //   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
 //   .add('Card', () => <Widget width={300} height={200} />)
 

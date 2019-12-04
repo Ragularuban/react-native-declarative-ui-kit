@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import * as React from 'react';
-import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback } from 'react-native';
+import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback, Vibration } from 'react-native';
 import styled from 'styled-components/native';
 import { Touchable, Box, AnimatedBox, Row } from '../../layout/layout';
 import { Icon, IconName } from '../icon/icon.element';
@@ -18,6 +18,9 @@ export class _RadioButton extends React.PureComponent<RadioButtonProps> {
 
   UIActions = {
     RadioButtonToggle: () => {
+      if (this.props.vibrate) {
+        Vibration.vibrate(40);
+      }
       this.state.RadioButtonToggle ? (this.setState({ RadioButtonToggle: false }), this.props.onChange(false)) : (this.setState({ RadioButtonToggle: true }), this.props.onChange(true));
     }
   }
@@ -90,7 +93,8 @@ interface RadioButtonProps {
   animate?: boolean,
   size?: RadioButtonSize,
   backgroundColor?: colorPallet
-  iconLarge?: boolean
+  iconLarge?: boolean,
+  vibrate?: boolean
 }
 
 interface colorPallet {
@@ -167,7 +171,8 @@ export const RadioButton = (props: {
   track?: string,
   width?: number,
   placeholder?: string,
-  animate?: boolean
+  animate?: boolean,
+  vibrate?: boolean
 }) => {
 
   function def(val) {
@@ -185,7 +190,8 @@ export const RadioButton = (props: {
       height: 20,
       borderRadius: 50
     },
-    onChange: props.onChange ? props.onChange : def
+    onChange: props.onChange ? props.onChange : def,
+    vibrate: props.vibrate
   };
 
   if (props.large) {

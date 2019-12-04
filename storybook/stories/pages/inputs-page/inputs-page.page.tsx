@@ -71,9 +71,7 @@ export class InputsPage extends React.PureComponent<InputsPageProps & Partial<In
 
                     {/* Simple Box */}
                     <Widget padded-xxl>
-                        <Box>
-                            <TextArea placeholder="Textarea"></TextArea>
-                        </Box>
+                        <InputX text-area info placeholder={'info'}></InputX>
                     </Widget>
                 </Scrollable>
             </Column >

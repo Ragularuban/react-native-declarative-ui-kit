@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import * as React from 'react';
-import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback } from 'react-native';
+import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback, Vibration } from 'react-native';
 import styled from 'styled-components/native';
 import { Touchable, Box, AnimatedBox, Row } from '../../layout/layout';
 import { Icon, IconName } from '../icon/icon.element';
@@ -18,6 +18,9 @@ export class _CheckBox extends React.PureComponent<CheckBoXProps> {
 
   UIActions = {
     checkBoxToggle: () => {
+      if (this.props.vibrate) {
+        Vibration.vibrate(40);
+      }
       this.state.checkBoxToggle ? (this.setState({ checkBoxToggle: false }), this.props.onChange(false)) : (this.setState({ checkBoxToggle: true }), this.props.onChange(true));
     }
   }
@@ -87,7 +90,8 @@ interface CheckBoXProps {
   animate?: boolean,
   size?: CheckBoXSize,
   backgroundColor?: colorPallet
-  iconLarge?: boolean
+  iconLarge?: boolean,
+  vibrate?: boolean
 }
 
 interface colorPallet {
@@ -164,7 +168,8 @@ export const CheckBoX = (props: {
   track?: string,
   width?: number,
   placeholder?: string,
-  animate?: boolean
+  animate?: boolean,
+  vibrate?: boolean
 }) => {
 
   function def(val) {
@@ -182,7 +187,8 @@ export const CheckBoX = (props: {
       width: 20,
       height: 20,
     },
-    onChange: props.onChange ? props.onChange : def
+    onChange: props.onChange ? props.onChange : def,
+    vibrate: props.vibrate
   };
 
   if (props.large) {

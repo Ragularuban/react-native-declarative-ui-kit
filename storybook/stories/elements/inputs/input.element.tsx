@@ -19,6 +19,7 @@ import { H3, P } from '../../typography/typography';
 import { UIConfigurations } from '../../config/config';
 import { LoadingIndicator } from '../loading-indicator/loading-indicator';
 import { ifSmallerScreen } from '../../../ui-helpers/is-smaller-screen';
+import { TextArea } from './text-area.element';
 
 
 export class _Input extends React.PureComponent<InputXProps> {
@@ -48,6 +49,15 @@ export class _Input extends React.PureComponent<InputXProps> {
               <Icon name={this.props.icon} small />
             </Box>
           </Box>
+        )
+      }
+      case InputXType.TEXTAREA: {
+        return (
+          <TextArea
+            {...this.props.RNativeProps}
+            placeholder={this.props.placeholder ? this.props.placeholder : 'Placeholder'}
+            placeholderTextColor={'#BEBEBE'}
+            style={this.props.style} />
         )
       }
       default: {
@@ -103,7 +113,8 @@ export enum InputXType {
   BASIC = "BASIC",
   LABELED = "LABELED",
   ICON = "ICON",
-  LOADING = "LOADING"
+  LOADING = "LOADING",
+  TEXTAREA = "TEXTAREA",
 }
 
 
@@ -117,6 +128,7 @@ export const InputX = (props: {
   small?: boolean,
   large?: boolean,
   "large-x"?: boolean,
+  "text-area"?: boolean,
   // Coloring Options
   ghost?: boolean,
   // Button Colors & Label Colors
@@ -179,6 +191,8 @@ export const InputX = (props: {
         paddingRight: 26
       }
     }
+  } else if (props["text-area"]) {
+    inputProps.type = InputXType.TEXTAREA
   }
 
   if (props.primary) {

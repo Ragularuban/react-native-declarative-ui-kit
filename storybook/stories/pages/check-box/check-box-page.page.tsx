@@ -6,6 +6,7 @@ import { CheckBoX } from "../../elements/check-box/check-box.element";
 
 
 
+
 export class CheckBoxPage extends React.PureComponent<CheckBoxPageProps & Partial<CheckBoxPageConnectedProps>, CheckBoxPageState>{
 
     static defaultProps = {
@@ -41,12 +42,12 @@ export class CheckBoxPage extends React.PureComponent<CheckBoxPageProps & Partia
 
                     {/* Simple Textbox */}
                     <Widget padded-xxl>
-                        <CheckBoX animate warning large onChange={(toggle) => console.log('the toggle :', toggle)} />
+                        <CheckBoX animate warning large onChange={(toggle) => console.log('lol')}  />
                     </Widget>
 
                     {/* Simple Textbox */}
                     <Widget padded-xxl>
-                        {/* <CheckBoX animate warning /> */}
+                        <CheckBoX animate warning vibrate/>
                     </Widget>
 
                 </Scrollable>

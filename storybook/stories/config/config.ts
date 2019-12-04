@@ -1,3 +1,14 @@
+import { platform } from "os";
+import { Platform } from "@unimodules/core";
+
+let font;
+
+if (Platform.OS == 'ios') {
+    font = 'Arial';
+} else {
+    font = 'sans-serif';
+}
+
 export const UIConfigurations = {
     global: {
         colors: {
@@ -38,7 +49,7 @@ export const UIConfigurations = {
                 _800: "#007D6C",
                 _900: "#004A45",
             },
-            info:"#0095FF",
+            info: "#0095FF",
             _info: {
                 _100: "#F2F8FF",
                 _200: "#C7E2FF",
@@ -50,7 +61,7 @@ export const UIConfigurations = {
                 _800: "#0041A8",
                 _900: "#002885",
             },
-            warning:"#FFAA00",
+            warning: "#FFAA00",
             _warning: {
                 _100: "#FFFDF2",
                 _200: "#FFF1C2",
@@ -62,7 +73,7 @@ export const UIConfigurations = {
                 _800: "#945400",
                 _900: "#703C00",
             },
-            danger:"#FF3D3D",
+            danger: "#FF3D3D",
             _danger: {
                 _100: "#FDEEEE",
                 _200: "#FCD0D0",
@@ -169,10 +180,10 @@ export const UIConfigurations = {
             }
         },
         font: {
-            regular: 'Arial',
-            bold: 'Arial',
-            semiBold: 'Arial',
-            light: 'Arial'
+            regular: font,
+            bold: font,
+            semiBold: font,
+            light: font
         }
     }
 };
