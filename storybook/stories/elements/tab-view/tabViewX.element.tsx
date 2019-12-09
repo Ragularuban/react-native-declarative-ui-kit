@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import * as React from 'react';
-import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback, Switch, Vibration, Dimensions } from 'react-native';
+import { TouchableOpacity, View, Text, ViewStyle, RegisteredStyle, ImageStyle, TextStyle, StyleSheet, TextInput, TextInputProps, TouchableWithoutFeedback, Switch, Vibration, Dimensions, StyleProp } from 'react-native';
 import styled from 'styled-components/native';
 import { Touchable, Box, AnimatedBox, Row } from '../../layout/layout';
 import { Icon, IconName } from '../icon/icon.element';
@@ -9,17 +9,16 @@ import { UIConfigurations } from '../../config/config';
 import { LoadingIndicator } from '../loading-indicator/loading-indicator';
 import { ifSmallerScreen } from '../../../ui-helpers/is-smaller-screen';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import Animated from 'react-native-reanimated';
 
-
+const lol = [{ name: 'charana' }, { name: 'ishanka' }]
 export class _TabViewX extends React.PureComponent<tabViewXProps> {
 
   state = {
-    index: 1, routes: [{ key: 'music', title: 'Music' }, { key: 'albums', title: 'Albums' }]
+    index: 1,
+    routes: this.props.nav,
+    lol: false
   }
-
-
-
-
 
   render() {
     switch (this.props.type) {
@@ -53,40 +52,34 @@ export class _TabViewX extends React.PureComponent<tabViewXProps> {
       //   )
       // }
       default: {
+
         return (
           <TabView
             navigationState={this.state}
-            renderScene={SceneMap({
-              music: () => (
-                <View >
-                  <P>lol</P>
-                </View>
-              ),
-              albums: () => (
-                <View >
-                  <P>lol2</P>
-                </View>
-              )
-            })}
+            renderScene={SceneMap(this.props.content)}
             onIndexChange={index => this.setState({ index })}
-            initialLayout={{ width: Dimensions.get('window').width }}
             renderTabBar={props =>
               <TabBar
+                labelStyle={this.props.labelStyle}
                 {...props}
-                renderIcon={({ route, focused, color }) => (
-                  route.key == 'first' ? <Icon
-                    name={'ios-alarm'}
-                    color={color}
-                  /> :
-                    <Icon
-                      name={'ios-airplane'}
-                      color={color}
-                    />
-                )}
-                renderLabel={null}
+                {...this.props.TabBarProps}
+                style={{ ...this.props.style as any, ...{} }}
+              // style={{ backgroundColor: 'red' }}
+              // renderIcon={({ route, focused, color }) => (
+              //   route.key == 'first' ? <Icon
+              //     name={'ios-alarm'}
+              //     color={color}
+              //   /> :
+              //     <Icon
+              //       name={'ios-airplane'}
+              //       color={color}
+              //     />
+              // )}
+              // renderLabel={null}
               />
             }
-            tabBarPosition={'top'}
+            {...this.props.TabViewProps}
+          // tabBarPosition={'bottom'}
           />
         )
       }
@@ -108,7 +101,12 @@ interface tabViewXProps {
   size?: SwitchXSize,
   backgroundColor?: colorPallet
   iconLarge?: boolean,
-  vibrate?: boolean
+  vibrate?: boolean,
+  TabViewProps?: any,
+  TabBarProps?: any,
+  nav?: { key: string, title: string }[],
+  content?: any,
+  labelStyle?: StyleProp<TextStyle>
 }
 
 interface colorPallet {
@@ -168,6 +166,7 @@ export const TabViewX = (props: {
   danger?: boolean,
   info?: boolean,
   disabled?: boolean,
+  white?: boolean,
   // Floated Options
   "float-left"?: boolean,
   "float-right"?: boolean,
@@ -186,11 +185,23 @@ export const TabViewX = (props: {
   width?: number,
   placeholder?: string,
   animate?: boolean,
-  vibrate?: boolean
+  vibrate?: boolean,
+  TabViewProps?: any,
+  TabBarProps?: any,
+  nav?: { key: string, title: string }[],
+  content?: any,
 }) => {
 
   function def(val) {
 
+  }
+
+  function emptyStuff(nav: { key: string; title: string; }[]) {
+    let emptyContent = {}
+    nav.map((val) => {
+      emptyContent[val.key] = () => (<View />)
+    })
+    return emptyContent;
   }
 
   let tabViewXProps: tabViewXProps = {
@@ -200,18 +211,21 @@ export const TabViewX = (props: {
     size: SwitchXSize.SMALL,
     type: props.labeled ? TabViewType.ICON : null,
     style: {
-      borderWidth: 1,
-      opacity: 1
     },
+    labelStyle: { color: UIConfigurations.global.colors.white },
     onChange: props.onChange ? props.onChange : def,
-    vibrate: props.vibrate
+    vibrate: props.vibrate,
+    TabViewProps: props.TabViewProps,
+    TabBarProps: props.TabBarProps,
+    nav: props.nav,
+    content: props.content ? props.content : emptyStuff(props.nav)
   };
 
   if (props.primary) {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._primary._400,
+        backgroundColor: UIConfigurations.global.colors._primary._400,
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._primary
@@ -219,7 +233,7 @@ export const TabViewX = (props: {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._success._400,
+        backgroundColor: UIConfigurations.global.colors._success._400,
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._success
@@ -227,7 +241,7 @@ export const TabViewX = (props: {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._warning._400,
+        backgroundColor: UIConfigurations.global.colors._warning._400,
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._warning
@@ -235,7 +249,7 @@ export const TabViewX = (props: {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._danger._400,
+        backgroundColor: UIConfigurations.global.colors._danger._400,
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._danger
@@ -243,15 +257,28 @@ export const TabViewX = (props: {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._info._400,
+        backgroundColor: UIConfigurations.global.colors._info._400,
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._info
+  } else if (props.white) {
+    tabViewXProps.style = {
+      ...tabViewXProps.style as any,
+      ...{
+        backgroundColor: UIConfigurations.global.colors.white,
+        // color: UIConfigurations.global.colors.darker
+      }
+    }
+    tabViewXProps.labelStyle = {
+      ...tabViewXProps.labelStyle as any, ...{
+        color: UIConfigurations.global.colors.darker
+      }
+    }
   } else {
     tabViewXProps.style = {
       ...tabViewXProps.style as any,
       ...{
-        borderColor: UIConfigurations.global.colors._basic._400
+        backgroundColor: UIConfigurations.global.colors._basic._400
       }
     }
     tabViewXProps.backgroundColor = UIConfigurations.global.colors._basic

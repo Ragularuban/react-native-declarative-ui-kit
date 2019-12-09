@@ -14,6 +14,7 @@ import { CheckBoxPage } from './pages/check-box/check-box-page.page';
 import { RadioButtonPage } from './pages/radio-button-page/radio-button-page.page';
 import { SwitchXPage } from './pages/switch-page/switch-page.page';
 import { TabXPage } from './pages/tab-page/tabX-page.page';
+import { ButtonNavigationPage } from './pages/button-navigation/button-navigation-page.page';
 
 
 
@@ -28,6 +29,7 @@ storiesOf('Theme', module)
     .add('Radio Button', () => <RadioButtonPage />)
     .add('Switch', () => <SwitchXPage />)
     .add('Tab View', () => <TabXPage />)
+    .add('Button Navigation', () => <ButtonNavigationPage />)
 //   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
 //   .add('Card', () => <Widget width={300} height={200} />)
 
