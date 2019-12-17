@@ -101,10 +101,19 @@ GradientBox
 > Properties
 
 | Name  | Type | Description |
-| ------------- | ------------- | ------------- |
+| ----- | ---- | ----------- |
 | label  | ```string```  | Determine label for the input component  |
 | labelStyle  | ```TextStyle```  | Customizing label style  |
 | icon  | ```IconName```  | Setting an icon on right corner (For IconName prop see icon element)  |
+| text-area  | ```boolean```  | Transforms input into an text area  |
+| width  | ```number```  | Sets input element width  |
+| isLoading  | ```boolean```  | Displays a loading indicator  |
+| basic  | ```boolean```  | Sets Basic color for the element |
+| primary  | ```boolean```  | Sets Primary color for the element |
+| success  | ```boolean```  | Sets Success color pallet for the element |
+| warning  | ```boolean```  | Sets Warning color pallet for the element |
+| danger  | ```boolean```  | Sets Danger color pallet for the element |
+| info  | ```boolean```  | Sets Info color pallet for the element |
 
 
 # Examples
