@@ -96,8 +96,15 @@ GradientBox
 
 
 
-## Common Elements
+# Common Elements
+## Input
+> Properties
 
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| label  | ```string```  | Determine label for the input component  |
+| labelStyle  | ```TextStyle```  | Customizing label style  |
+| icon  | ```IconName```  | Setting an icon on right corner (For IconName prop see icon element)  |
 
 
 # Examples
