@@ -5,6 +5,7 @@ import {
 import Modal from 'react-native-modal';
 import { Ionicons } from '@expo/vector-icons';
 import { ScreenWidth } from '../../../ui-helpers/screen-dimensions';
+import { Box } from '../../layout/layout';
 
 
 export default class AppToasts extends React.Component<AppToastsProps, AppToastsState> {
@@ -61,6 +62,8 @@ export default class AppToasts extends React.Component<AppToastsProps, AppToasts
             duration: 1000,
         }).start();
         setTimeout(() => {
+
+            console.log('false')
             this.setState({
                 show: false,
             })
@@ -122,15 +125,21 @@ export default class AppToasts extends React.Component<AppToastsProps, AppToasts
 
 
         if (!this.state.show) {
-            return <View />
+            return (<View />)
         }
-        return (
-            <Animated.View style={containerStyle}>
-                <View style={tostStyles as any}>
-                    <Text style={toastTextStyle}>{toastText}</Text>
-                </View>
-            </Animated.View>
-        );
+
+        if (this.state.show) {
+            return (
+                <Box>
+                    <Animated.View style={containerStyle}>
+                        <View style={tostStyles as any}>
+                            <Text style={toastTextStyle}>{toastText}</Text>
+                        </View>
+                    </Animated.View>
+                </Box>
+            );
+        }
+
     }
 }
 
@@ -182,7 +191,6 @@ let styles = StyleSheet.create({
     },
     textStyle: {
         color: '#fff',
-        fontFamily: 'Signika',
         fontSize: 16,
         textAlign: 'center'
     },

@@ -21,7 +21,8 @@ export class Toasts extends React.Component<ToastsProps & Partial<ToastsConnecte
 
     componentDidUpdate() {
         if (this.toastRef) {
-            if (this.props.toast &&  this.previousData != this.props.toast) {
+            if (this.props.toast && this.previousData != this.props.toast) {
+                console.log('props toast -> ', this.props.toast)
                 this.toastRef.show(this.props.toast);
             } else {
                 this.toastRef.hide();
@@ -30,6 +31,7 @@ export class Toasts extends React.Component<ToastsProps & Partial<ToastsConnecte
     }
 
     render() {
+        console.log('inside render -> ', this.props.toast)
         return (
             <AppToasts ref={this.onLayoutRefs.toast} />
         )

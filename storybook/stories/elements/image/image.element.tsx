@@ -13,7 +13,7 @@ export class ImageX extends React.PureComponent<ImageXProps, any> {
 
     render() {
 
-        let imageStyle = [{ flex: 1, height: undefined, width: undefined }];
+        let imageStyle = [{ flex: 1, height: undefined, width: undefined, borderRadius: this.props.borderRadius ? this.props.borderRadius : null }];
         let containerStyle = this.props.style ? StyleSheet.flatten(this.props.style) : {};
         // Generate Styles Based on Properties
         if (this.props.width) {
@@ -54,7 +54,7 @@ export class ImageX extends React.PureComponent<ImageXProps, any> {
                             <View style={innerContStyle}>
                                 <Image
                                     source={this.props.source}
-                                    style={imageStyle}
+                                    style={this.props.style ? { ...imageStyle as any, ...this.props.style as any } : imageStyle}
                                     resizeMode={this.props.resizeMode || "contain"}
                                 // onLoad={this.imageOnLoad}
                                 />
@@ -83,7 +83,7 @@ export interface ImageXProps {
     width?: number;
     height?: number;
     borderRadius?: number;
-    cropped?: boolean;
+    cropped?: boolean; //hide overflow
     rounded?: boolean;
     isLocalPath?: boolean
 }

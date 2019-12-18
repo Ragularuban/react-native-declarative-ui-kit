@@ -17,6 +17,10 @@ export function generateTypographyStyle(props) {
     if (props.size) {
         style += `font-size:${props.size}px;`
     }
+
+    if (props.color) {
+        style += `color:${props.color};`
+    }
     return style;
 }
 
@@ -56,6 +60,7 @@ export type TextStylingOptions = {
 export interface TypographyProps extends TextStylingOptions {
     children?: string | string[];
     size?: number;
+    color?: string;
     style?: TextStyle | RegisteredStyle<TextStyle> | RegisteredStyle<TextStyle>[]
 }
 

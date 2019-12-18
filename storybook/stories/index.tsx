@@ -15,6 +15,14 @@ import { RadioButtonPage } from './pages/radio-button-page/radio-button-page.pag
 import { SwitchXPage } from './pages/switch-page/switch-page.page';
 import { TabXPage } from './pages/tab-page/tabX-page.page';
 import { ButtonNavigationPage } from './pages/button-navigation/button-navigation-page.page';
+import { ImageXPage } from './pages/image-page/image-page.page';
+import { ToastPage } from './pages/toast-page/toast-page.page';
+import { BottomModalPage } from './pages/bottom-modal-page/bottom-modal.page';
+import { PopupPage } from './pages/popup-page/popup-page.page';
+import { UserProfilePage } from './pages/user-profile-page/user-profile-page.page';
+import { AppPurchaseFaqPage } from './pages/app-purchase-faq-page/app-purchase-faq-page.page';
+import { OnBoardingPage } from './pages/on-boarding-page/on-boarding-page.page';
+import { AnalyticsPage } from './pages/analytics-page/analytics-page.page';
 
 
 
@@ -30,6 +38,13 @@ storiesOf('Theme', module)
     .add('Switch', () => <SwitchXPage />)
     .add('Tab View', () => <TabXPage />)
     .add('Button Navigation', () => <ButtonNavigationPage />)
+    .add('ImageX', () => <ImageXPage />)
+    .add('Toast', () => <ToastPage />)
+    .add('Bottom Modal', () => <BottomModalPage />)
+    .add('Popup Modal', () => <PopupPage />)
+    .add('User Profile Page', () => <UserProfilePage />)
+    .add('FAQ Page', () => <AppPurchaseFaqPage />)
+    .add('Intro Page', () => <OnBoardingPage />)
 //   .addDecorator(getStory => <Column center middle>{getStory()}</Column>)
 //   .add('Card', () => <Widget width={300} height={200} />)
 

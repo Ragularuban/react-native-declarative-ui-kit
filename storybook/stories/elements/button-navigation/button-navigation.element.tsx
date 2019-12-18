@@ -180,15 +180,15 @@ export const ButtonNavigationX = (props: {
       ...ButtonNavigationX.style as any,
       ...{
         backgroundColor: UIConfigurations.global.colors.primary,
-        borderColor: UIConfigurations.global.colors._primary._900
+        borderColor: UIConfigurations.global.colors._primary._600
       }
     }
   } else if (props.success) {
     ButtonNavigationX.style = {
       ...ButtonNavigationX.style as any,
       ...{
-        backgroundColor: UIConfigurations.global.colors._success._900,
-        borderColor: UIConfigurations.global.colors._success._900
+        backgroundColor: UIConfigurations.global.colors.success,
+        borderColor: UIConfigurations.global.colors._success._600
       }
     }
   } else if (props.warning) {
@@ -196,7 +196,7 @@ export const ButtonNavigationX = (props: {
       ...ButtonNavigationX.style as any,
       ...{
         backgroundColor: UIConfigurations.global.colors.warning,
-        borderColor: UIConfigurations.global.colors._warning._900
+        borderColor: UIConfigurations.global.colors._warning._600
       }
     }
   } else if (props.info) {
@@ -204,7 +204,7 @@ export const ButtonNavigationX = (props: {
       ...ButtonNavigationX.style as any,
       ...{
         backgroundColor: UIConfigurations.global.colors.success,
-        borderColor: UIConfigurations.global.colors._info._900
+        borderColor: UIConfigurations.global.colors._info._600
       }
     }
   } else if (props.danger) {
@@ -212,7 +212,7 @@ export const ButtonNavigationX = (props: {
       ...ButtonNavigationX.style as any,
       ...{
         backgroundColor: UIConfigurations.global.colors.danger,
-        borderColor: UIConfigurations.global.colors._danger._900
+        borderColor: UIConfigurations.global.colors._danger._600
       }
     }
   } else {
@@ -220,7 +220,7 @@ export const ButtonNavigationX = (props: {
       ...ButtonNavigationX.style as any,
       ...{
         backgroundColor: UIConfigurations.global.colors.basic,
-        borderColor: UIConfigurations.global.colors._basic._900
+        borderColor: UIConfigurations.global.colors._basic._600
       }
     }
     ButtonNavigationX.fontColor = { ...ButtonNavigationX.fontColor as any, ...{ color: UIConfigurations.global.colors.white } }

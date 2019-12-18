@@ -6,10 +6,12 @@ import { BottomBar } from "../../collections/bottom-bar/bottom-bar.collection";
 import { ButtonX } from "../../elements/button/button.element";
 import { ButtonNavigationX } from "../../elements/button-navigation/button-navigation.element";
 import { Icon } from "../../elements/icon/icon.element";
+import { ImageX } from "../../elements/image/image.element";
+import { Assets } from "../../config/config";
 
 
 
-export class ButtonNavigationPage extends React.PureComponent<ButtonNavigationPageProps & Partial<ButtonNavigationPageConnectedProps>, ButtonNavigationPageState>{
+export class ImageXPage extends React.PureComponent<ImageXPageProps & Partial<ImageXPageConnectedProps>, ImageXPageState>{
 
     static defaultProps = {
 
@@ -39,16 +41,11 @@ export class ButtonNavigationPage extends React.PureComponent<ButtonNavigationPa
                 <Scrollable stickyHeaderIndices={[0]}>
                     {/* Header */}
                     <Widget no-margin padded-xxl>
-                        <H1>Button Navigation Examples</H1>
+                        <H1>Image Examples</H1>
                     </Widget>
 
                     <Widget>
-                        <ButtonNavigationX
-                            onChange={(route) => console.log('route', route)}
-                            success
-                            // tabs={[{ title: 'L' }, { title: 'L' }, { title: 'L' }]}
-                            tabs={[{ icon: <Icon white name={'md-cloud-circle'} /> }, { icon: <Icon white name={'md-cloud-circle'} /> }, { icon: <Icon white name={'md-cloud-circle'} /> }]}
-                        />
+                        <ImageX source={Assets.misc.avatar} width={100} height={100}/>
                     </Widget>
 
 
@@ -60,14 +57,14 @@ export class ButtonNavigationPage extends React.PureComponent<ButtonNavigationPa
 
 }
 
-export interface ButtonNavigationPageProps {
+export interface ImageXPageProps {
     goBack?: () => any
 }
 
-export interface ButtonNavigationPageState {
+export interface ImageXPageState {
 
 }
 
-export interface ButtonNavigationPageConnectedProps {
+export interface ImageXPageConnectedProps {
 
 }

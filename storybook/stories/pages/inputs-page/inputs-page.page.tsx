@@ -65,7 +65,7 @@ export class InputsPage extends React.PureComponent<InputsPageProps & Partial<In
                     </Widget>
                     <Widget padded-xxl>
                         <Box>
-                            <InputX info placeholder={'info'}></InputX>
+                            <InputX width={30} info placeholder={'info'}></InputX>
                         </Box>
                     </Widget>
 

@@ -44,7 +44,9 @@ export class _Input extends React.PureComponent<InputXProps> {
               {...this.props.RNativeProps}
               placeholder={this.props.placeholder ? this.props.placeholder : 'Placeholder'}
               placeholderTextColor={'#BEBEBE'}
-              style={this.props.style} />
+              style={this.props.style}
+              onChange={this.props.onChange}
+            />
             <Box absolute right={15} center middle height={40}>
               <Icon name={this.props.icon} small />
             </Box>
@@ -57,7 +59,9 @@ export class _Input extends React.PureComponent<InputXProps> {
             {...this.props.RNativeProps}
             placeholder={this.props.placeholder ? this.props.placeholder : 'Placeholder'}
             placeholderTextColor={'#BEBEBE'}
-            style={this.props.style} />
+            style={this.props.style}
+            onChange={this.props.onChange}
+          />
         )
       }
       default: {
@@ -66,7 +70,9 @@ export class _Input extends React.PureComponent<InputXProps> {
             {...this.props.RNativeProps}
             placeholder={this.props.placeholder ? this.props.placeholder : 'Placeholder'}
             placeholderTextColor={'#BEBEBE'}
-            style={this.props.style} />
+            style={this.props.style}
+            onChange={this.props.onChange}
+          />
         )
       }
     }
@@ -89,7 +95,8 @@ interface InputXProps {
   track?: string,
   isLeftAligned?: boolean,
   placeholder?: string,
-  RNativeProps?: TextInputProps
+  RNativeProps?: TextInputProps,
+  onChange?: () => any
 }
 
 export enum InputXFloat {
@@ -156,7 +163,8 @@ export const InputX = (props: {
   track?: string,
   width?: number,
   placeholder?: string,
-  RNativeProps?: TextInputProps
+  RNativeProps?: TextInputProps,
+  onChange?: () => any
 }) => {
 
   let inputProps: InputXProps = {
@@ -180,7 +188,8 @@ export const InputX = (props: {
       color: "#fff",
       fontSize: ifSmallerScreen(16, 18),
       textAlign: 'center'
-    }
+    },
+    onChange: props.onChange
   };
 
   if (props.icon) {
